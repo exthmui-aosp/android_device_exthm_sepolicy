@@ -25,6 +25,7 @@ BOARD_VENDOR_SEPOLICY_DIRS += \
     device/exthm/sepolicy/common/vendor
 endif
 
-# Selectively include legacy rules defined by the products
--include device/exthm/sepolicy/legacy-common/sepolicy.mk
-
+# Include atv rules on atv product
+ifeq ($(PRODUCT_IS_ATV), true)
+include device/exthm/sepolicy/atv/sepolicy.mk
+endif
